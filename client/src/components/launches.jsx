@@ -22,8 +22,9 @@ export class Launches extends Component {
 				<Query query={ LAUNCHES_QUERY }>
 					{
 						( { loading, error, data } ) => {
+							console.log(data,"Data!")
 							if(loading) return <h4>Loading...</h4>
-							if(error) console.log('error!:', error) ;
+							if(error) console.log('error!:', error);
 							return <Fragment>{
 								data.launches.map(launch => <LaunchItem key={launch.flight_number} launch={launch}/>)
 							}</Fragment>
